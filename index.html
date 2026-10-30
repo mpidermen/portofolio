@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mohammad Bagas Fais Saputra - Informatics Student & Aspiring Software Developer Portfolio">
+    <title>Mohammad Bagas Fais Saputra | Personal Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Feather Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar-header" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-brand">
+                <span class="logo-badge">B</span>
+                <span class="logo-text">Bagas<span>.dev</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#journey" class="nav-link">Journey</a></li>
+                    <li><a href="#github" class="nav-link">GitHub</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- TOMBOL NIGHT/LIGHT MODE BARU -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <a href="#contact" class="btn btn-outline-orange btn-sm nav-cta">Let's Talk</a>
+                <button class="hamburger-toggle" id="menuToggle" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span> Available for Internship & Collaboration
+                    </div>
+                    
+                    <span class="hero-greeting">Hello, I'm</span>
+                    <h1 class="hero-name">Mohammad Bagas <br><span class="highlight-text">Fais Saputra</span></h1>
+                    
+                    <div class="typing-container">
+                        <span class="static-prefix">I am an</span>
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
+
+                    <p class="hero-description">
+                        I'm an Informatics student at the University of Muhammadiyah Malang, passionate about building meaningful digital experiences through software development. I enjoy exploring web technologies, artificial intelligence, and embedded systems while continuously learning and turning ideas into real-world solutions.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary-orange">
+                            <span>Explore My Work</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="assets/docs/CV_Mohammad_Bagas.pdf" download="CV_Mohammad_Bagas_Saputra.pdf" class="btn btn-secondary-slate">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-quick-info">
+                        <div class="info-item">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Universitas Muhammadiyah Malang</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Malang, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- 
+                        DOKUMENTASI FOTO PROFIL:
+                        Untuk mengganti foto pribadi:
+                        1. Siapkan file foto format PNG/JPG.
+                        2. Simpan di folder: assets/images/profile.png
+                        3. Jangan ubah nama file agar otomatis terhubung.
+                    -->
+                    <div class="profile-card">
+                        <div class="profile-frame">
+                            <img src="assets/images/profile.png" 
+                                 alt="Mohammad Bagas Fais Saputra" 
+                                 class="profile-img"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800';">
+                            <div class="profile-overlay"></div>
+                        </div>
+                        
+                        <div class="floating-badge badge-top">
+                            <i class="fa-solid fa-code text-orange"></i>
+                            <div>
+                                <strong>Web Dev</strong>
+                                <span>Frontend & Architecture</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom">
+                            <i class="fa-solid fa-microchip text-orange"></i>
+                            <div>
+                                <strong>IoT Enthusiast</strong>
+                                <span>ESP32 & Embedded Systems</span>
+                            </div>
+                        </div>
+
+                        <div class="social-side-bar">
+                            <a href="https://github.com/mpidermen" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mohammad-bagas-fais-saputra-7b217b244/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/bagas_epc" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">// ABOUT ME</span>
+                    <h2 class="section-title">Exploring Technology, Creating Possibilities.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text-content">
+                        <p class="lead-text">
+                            Hello! I'm <strong class="text-orange">Mohammad Bagas Fais Saputra</strong>, an Informatics student at the University of Muhammadiyah Malang with a strong interest in software development and emerging technologies.
+                        </p>
+                        <p>
+                            I enjoy exploring how technology can solve real-world problems. My interests include web development, software engineering, artificial intelligence, and Internet of Things (IoT). Through academic projects and personal experiments, I continuously develop my technical skills and turn ideas into practical solutions.
+                        </p>
+                        <p>
+                            Currently, I'm focusing on improving my programming skills, exploring modern web technologies, and building projects that combine creativity with technology. I'm always eager to learn, collaborate, and take on new challenges.
+                        </p>
+
+                        <div class="interests-grid">
+                            <div class="interest-chip"><i class="fa-solid fa-laptop-code"></i> Web Development</div>
+                            <div class="interest-chip"><i class="fa-solid fa-gears"></i> Software Engineering</div>
+                            <div class="interest-chip"><i class="fa-solid fa-brain"></i> Artificial Intelligence</div>
+                            <div class="interest-chip"><i class="fa-solid fa-network-wired"></i> Internet of Things</div>
+                            <div class="interest-chip"><i class="fa-solid fa-microchip"></i> Embedded Systems</div>
+                        </div>
+                    </div>
+
+                    <div class="about-stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-number">2024</div>
+                            <div class="stat-label">Informatics Student Intake</div>
+                            <p class="stat-desc">Universitas Muhammadiyah Malang</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Technology Interests</div>
+                            <p class="stat-desc">Web Development • AI • IoT</p>
+                        </div>
+                        <div class="stat-card highlight-border">
+                            <div class="stat-number text-orange">7</div>
+                            <div class="stat-label">Web Development Topics</div>
+                            <p class="stat-desc">HTML • CSS • JavaScript • PHP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="skills-section section-padding bg-slate-900">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="sub-heading">// TECHNICAL SPECTRUM</span>
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <p class="section-subtitle">A collection of technologies and skills I've explored through academic learning, hands-on projects, and continuous practice.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Frontend -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
+                            <h3>Frontend Stack</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-tag"><i class="fa-brands fa-html5 text-orange"></i> HTML5</div>
+                            <div class="skill-tag"><i class="fa-brands fa-css3-alt text-orange"></i> CSS3</div>
+                            <div class="skill-tag"><i class="fa-brands fa-js text-orange"></i> JavaScript ES6+</div>
+                            <div class="skill-tag"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</div>
+                            <div class="skill-tag"><i class="fa-solid fa-arrows-split-up-and-left"></i> DOM Manipulation</div>
+                            <div class="skill-tag"><i class="fa-solid fa-globe"></i> Fetch REST API</div>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="icon-wrapper"><i class="fa-solid fa-server"></i></div>
+                            <h3>Backend & Database</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-tag"><i class="fa-brands fa-php text-orange"></i> PHP Procedural</div>
+                            <div class="skill-tag"><i class="fa-solid fa-cubes"></i> PHP OOP & MVC</div>
+                            <div class="skill-tag"><i class="fa-solid fa-database text-orange"></i> MySQL Database</div>
+                            <div class="skill-tag"><i class="fa-solid fa-layer-group"></i> Composer</div>
+                            <div class="skill-tag"><i class="fa-solid fa-key"></i> CRUD Systems</div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="icon-wrapper"><i class="fa-solid fa-terminal"></i></div>
+                            <h3>Programming Languages</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-tag"><i class="fa-brands fa-python text-orange"></i> Python</div>
+                            <div class="skill-tag"><i class="fa-solid fa-c"></i> C / C++</div>
+                            <div class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</div>
+                            <div class="skill-tag"><i class="fa-brands fa-php"></i> PHP</div>
+                        </div>
+                    </div>
+
+                    <!-- Developer Tools -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="icon-wrapper"><i class="fa-solid fa-wrench"></i></div>
+                            <h3>Developer Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-tag"><i class="fa-brands fa-git-alt text-orange"></i> Git</div>
+                            <div class="skill-tag"><i class="fa-brands fa-github text-orange"></i> GitHub</div>
+                            <div class="skill-tag"><i class="fa-solid fa-code text-orange"></i> VS Code</div>
+                            <div class="skill-tag"><i class="fa-solid fa-paper-plane"></i> Postman API Testing</div>
+                            <div class="skill-tag"><i class="fa-solid fa-triangle-exclamation"></i> Vercel Static Deploy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects-section section-padding">
+            <div class="container">
+                <div class="section-header flex-between">
+                    <div>
+                        <span class="sub-heading">// PORTFOLIO WORKS</span>
+                        <h2 class="section-title">Selected Projects</h2>
+                    </div>
+                    
+                    <div class="project-filters" id="projectFilters">
+                        <button class="filter-btn active" data-filter="all">All Works</button>
+                        <button class="filter-btn" data-filter="ai">AI / Web</button>
+                        <button class="filter-btn" data-filter="iot">Embedded & IoT</button>
+                        <button class="filter-btn" data-filter="ar">Augmented Reality</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project Cards dynamically rendered by projects.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="education-section section-padding bg-slate-900">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="sub-heading">// ACADEMIC BACKGROUND</span>
+                    <h2 class="section-title">Education Timeline</h2>
+                </div>
+
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Present</div>
+                            <h3 class="timeline-title">Bachelor of Informatics</h3>
+                            <div class="timeline-institution">Universitas Muhammadiyah Malang</div>
+                            <p class="timeline-description">
+                                Currently pursuing a Bachelor's degree in Informatics, with academic interests in Web Development, Data Structures, Algorithms, Software Engineering, Internet of Things (IoT), and Artificial Intelligence.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Graduated 2022</div>
+                            <h3 class="timeline-title">Teknik Elektronika Industri (TEI)</h3>
+                            <div class="timeline-institution">SMK Muhammadiyah 1 Gresik</div>
+                            <p class="timeline-description">
+                                Completed vocational education in Industrial Electronics Engineering, gaining foundational knowledge of electronics, electrical systems, and practical technical skills. Developed an interest in technology through hands-on learning and technical projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEARNING JOURNEY -->
+        <section id="journey" class="journey-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="sub-heading">// ACADEMIC PROGRESSION</span>
+                    <h2 class="section-title">Web Programming Learning Journey</h2>
+                    <p class="section-subtitle">Structured roadmap of competencies developed during the Web Programming academic course.</p>
+                </div>
+
+                <div class="journey-list" id="journeyList">
+                    <div class="journey-card">
+                        <div class="journey-num">01</div>
+                        <div class="journey-body">
+                            <h4>Pengantar Web & HTML5</h4>
+                            <p>Mastering semantic document hierarchy, accessibility tags (ARIA), forms, table architecture, and document head optimization.</p>
+                            <span class="journey-badge">Core Foundations</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-num">02</div>
+                        <div class="journey-body">
+                            <h4>CSS Responsive Accessibility & Layouts</h4>
+                            <p>Designing fluid layouts with Flexbox, CSS Grid, CSS Custom Variables, media queries, keyframe animations, and WCAG accessibility standards.</p>
+                            <span class="journey-badge">UI/UX Styling</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-num">03</div>
+                        <div class="journey-body">
+                            <h4>JavaScript DOM & Event Handling</h4>
+                            <p>Manipulating the Document Object Model, handling interactive click/submit events, dynamic element creation, class manipulation, and modal building.</p>
+                            <span class="journey-badge">Interactivity</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-num">04</div>
+                        <div class="journey-body">
+                            <h4>Asynchronous JS & Fetch REST API</h4>
+                            <p>Handling async workflows, JavaScript Promises, async/await, try/catch error handling, and communicating with external REST APIs (GitHub API integration).</p>
+                            <span class="journey-badge">Asynchronous Programming</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-num">05</div>
+                        <div class="journey-body">
+                            <h4>PHP Procedural Programming</h4>
+                            <p>Understanding server-side scripting fundamentals, form data processing via GET/POST, sessions, cookies, and basic logic structures.</p>
+                            <span class="journey-badge">Academic Server-Side</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card">
+                        <div class="journey-num">06</div>
+                        <div class="journey-body">
+                            <h4>PHP CRUD & MySQL Database Integration</h4>
+                            <p>Building Create, Read, Update, and Delete relational database connections with MySQL using PDO/MySQLi safely against SQL Injection.</p>
+                            <span class="journey-badge">Database Logic</span>
+                        </div>
+                    </div>
+
+                    <div class="journey-card highlight-card">
+                        <div class="journey-num">07</div>
+                        <div class="journey-body">
+                            <h4>PHP OOP, Composer & MVC Architecture</h4>
+                            <p>Object-Oriented Programming principles (Encapsulation, Inheritance, Polymorphism), Composer dependency management, and Model-View-Controller patterns.</p>
+                            <span class="journey-badge badge-orange">Advanced Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GITHUB ACTIVITY SECTION -->
+        <section id="github" class="github-section section-padding bg-slate-900">
+            <div class="container">
+                <div class="section-header flex-between">
+                    <div>
+                        <span class="sub-heading">// LIVE API INTEGRATION</span>
+                        <h2 class="section-title">GitHub Activity & Repositories</h2>
+                    </div>
+                    <a href="https://github.com/mpidermen" target="_blank" class="btn btn-outline-orange btn-sm">
+                        <i class="fa-brands fa-github"></i> Visit Profile
+                    </a>
+                </div>
+
+                <div class="github-search-bar">
+                    <label for="ghUsernameInput">GitHub Username:</label>
+                    <input type="text" id="ghUsernameInput" value="mpidermen" placeholder="Enter GitHub Username">
+                    <button id="fetchGhBtn" class="btn btn-primary-orange btn-sm">Fetch Repositories</button>
+                </div>
+
+                <div class="gh-repos-grid" id="ghReposGrid">
+                    <!-- Skeleton Loader State default -->
+                    <div class="repo-card skeleton"></div>
+                    <div class="repo-card skeleton"></div>
+                    <div class="repo-card skeleton"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="sub-heading">// GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Connect & Collaborate</h2>
+                    <p class="section-subtitle">Open for internship opportunities, joint projects, or technical conversations.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out directly through any of the channels below.</p>
+
+                        <div class="info-link-list">
+                            <a href="mailto:bagasfaiz@webmail.umm.ac.id" class="info-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <span>Email Address</span>
+                                    <strong>bagasfaiz@webmail.umm.ac.id</strong>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohammad-bagas-fais-saputra-7b217b244/" target="_blank" class="info-link">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <div>
+                                    <span>LinkedIn Profile</span>
+                                    <strong>Mohammad Bagas Fais Saputra</strong>
+                                </div>
+                            </a>
+                            <a href="https://github.com/mpidermen" target="_blank" class="info-link">
+                                <i class="fa-brands fa-github"></i>
+                                <div>
+                                    <span>GitHub Profile</span>
+                                    <strong>@mpidermen</strong>
+                                </div>
+                            </a>
+                            <div class="info-link">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <span>Location</span>
+                                    <strong>Malang, East Java, Indonesia</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <input type="hidden" name="access_key" value="ec8a843d-7c48-4ad3-8b87-a5bc04f51bd4">
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                <span class="error-msg" id="nameError">Name is required</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email *</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                <span class="error-msg" id="emailError">Please enter a valid email</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Internship" required>
+                                <span class="error-msg" id="subjectError">Subject is required</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                                <span class="error-msg" id="messageError">Message cannot be empty</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary-orange btn-full">
+                                <span>Send Message via Mail Client</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <div id="formFeedback" class="form-feedback"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="logo-badge">B</span>
+                <span>Mohammad Bagas Fais Saputra</span>
+            </div>
+            
+
+            <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- PROJECT DETAIL MODAL -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/github.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
