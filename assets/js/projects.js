@@ -29,7 +29,7 @@ const projectsData = [
         title: "AR Interactive Keychain",
         category: "ar",
         badge: "Augmented Reality",
-        thumbnail: "assets/images/Project3.png",
+        thumbnail: "assets/images/Project3.PNG",
         description: "An interactive AR keychain that combines physical design with digital experiences, allowing users to access immersive photo displays through a QR code.",
         fullDescription: "AR Interactive Keychain is a creative project that combines a physical keychain design with an augmented reality experience. The visual design assets were created using Photopea, while WebAR Studio was used to build and configure the AR experience. By scanning the QR code attached to the keychain, users can access an interactive digital experience featuring a floating photo. This project explores how accessible no-code tools can be used to connect physical objects with digital experiences in a creative and engaging way.",
         techStack: ["web-ar.studio", "Photopea", "QR Code", "Augmented Reality"],
