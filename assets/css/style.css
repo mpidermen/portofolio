@@ -1,6 +1,10 @@
 /* -------------------------------------------------------------------
    1. CSS VARIABLES & COLOR SYSTEM (Dark Slate & Burnt Orange Palette)
 ------------------------------------------------------------------- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Mencegah layar goyang/tergeser ke kanan di HP */
+}
 :root {
     --bg-main: #0B0F17;
     --bg-secondary: #111827;
@@ -215,10 +219,30 @@ button, input, textarea {
 }
 
 .navbar-header.scrolled {
-    background-color: rgba(11, 15, 23, 0.85);
-    backdrop-filter: blur(12px);
     padding: 14px 0;
     border-bottom: 1px solid var(--border-color);
+}
+
+/* Layer blur dipisah supaya header TIDAK punya backdrop-filter */
+.navbar-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(21, 26, 37, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-header.scrolled::before {
+    opacity: 1;
+}
+
+body.light-mode .navbar-header::before {
+    background-color: rgba(244, 247, 253, 0.7);
 }
 
 .nav-container {
@@ -494,6 +518,10 @@ button, input, textarea {
     gap: 12px;
     box-shadow: var(--shadow-card);
     z-index: 2;
+}
+
+body.light-mode .floating-badge{
+    background: rgba(218, 218, 218, 0.9);
 }
 
 .floating-badge i {
@@ -1149,7 +1177,7 @@ button, input, textarea {
 
 /* FOOTER */
 .footer {
-    background-color: #080B11;
+    background-color: var(--bg-secondary);
     padding: 40px 0;
     border-top: 1px solid var(--border-color);
 }
@@ -1241,10 +1269,25 @@ button, input, textarea {
     color: var(--accent-orange-glow);
 }
 
-/* RESPONSIVE DESIGN (MEDIA QUERIES) */
+/* ===================================================================
+   RESPONSIVE LAYOUT OPTIMIZATION (MOBILE & TABLET FIXES)
+=================================================================== */
+
+/* Tablet & HP Besar (Maksimal 992px) */
 @media (max-width: 992px) {
+    .section-padding {
+        padding: 60px 0; /* Kurangi padding agar tidak terlalu renggang di HP */
+    }
+
+    .hero-section {
+        padding-top: 120px;
+        padding-bottom: 50px;
+        min-height: auto;
+    }
+
     .hero-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Ubah layout grid menjadi 1 kolom vertikal */
+        gap: 40px;
         text-align: center;
     }
 
@@ -1254,68 +1297,196 @@ button, input, textarea {
 
     .hero-visual {
         order: 2;
-        margin-top: 20px;
+        margin-top: 10px;
+    }
+
+    .hero-name {
+        font-size: 2.5rem; /* Pengecilan ukuran nama di HP */
     }
 
     .hero-description {
-        margin: 0 auto 36px;
+        margin: 0 auto 28px;
+        font-size: 1rem;
     }
 
     .hero-cta-group, .hero-quick-info {
         justify-content: center;
+        flex-wrap: wrap; /* Agar tombol otomatis turun jika layar sangat sempit */
     }
 
     .typing-container {
         justify-content: center;
+        font-size: 1.15rem;
+    }
+
+    .profile-card {
+        max-width: 320px; /* Batasi lebar foto agar tidak melebar keluar layar */
+    }
+
+    .profile-img {
+        height: 380px; /* Menyesuaikan tinggi foto */
     }
 
     .about-grid, .contact-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .badge-top { left: 0; }
-    .badge-bottom { right: 0; }
-    .social-side-bar { right: 0; }
+    .github-search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .github-search-bar input {
+        width: 100%;
+    }
 }
 
+/* Smartphone / Layar Kecil (Maksimal 768px) */
 @media (max-width: 768px) {
+    .logo-brand {
+        font-size: 1rem;
+        gap: 8px;
+    }
+    .logo-badge {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    .nav-cta {
+        padding: 5px 10px !important;
+        font-size: 0.75rem !important;
+    }
+    .container {
+        padding: 0 16px; /* Kurangi margin padding samping */
+    }
+
+    body.menu-open {
+    overflow: hidden;
+    }
+
+    html:has(body.menu-open) {
+        overflow: hidden;
+    }
+
+    /* Cegah scroll "tembus" ke halaman di belakang menu */
+    .nav-menu {
+        overscroll-behavior: contain;
+    }
+
+    /* Hamburger & Mobile Nav Fix */
     .hamburger-toggle {
         display: flex;
     }
 
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 60px; /* Sesuaikan dengan tinggi navbar kamu */
         left: -100%;
         width: 100%;
-        background-color: var(--bg-secondary);
+        height: calc(100vh - 60px);
+        
+        /* WARNA BACKGROUND & BLUR UTAMA */
+        background-color: rgba(11, 15, 25, 0.7) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+        
+        /* PAKSA BROWSER MEMBUAT LAYER INDEPENDEN KELUAR DARI INDUK (SOLUSI UTAMA) */
+        isolation: isolate;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        will-change: transform, backdrop-filter;
+
         border-bottom: 1px solid var(--border-color);
-        padding: 24px;
-        transition: var(--transition);
+        padding: 30px 24px;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
     }
 
+    /* Khusus untuk Light Mode */
+    body.light-mode .nav-menu {
+        background-color: rgba(230, 230, 230, 0.7) !important;
+    }
     .nav-menu.active {
         left: 0;
     }
 
+    
+
     .nav-list {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        gap: 24px;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
     }
 
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 2rem; /* Nama disesuaikan untuk layar HP 5-6 inci */
+    }
+
+    /* Floating Badges pada Foto Profil (Penting agar tidak terpotong) */
+    .badge-top {
+        top: 10px;
+        left: -10px;
+        padding: 8px 12px;
+    }
+
+    .badge-bottom {
+        bottom: 80px;
+        right: -10px;
+        padding: 8px 12px;
+    }
+
+    .floating-badge strong {
+        font-size: 0.75rem;
+    }
+
+    .floating-badge span {
+        font-size: 0.65rem;
+    }
+
+    .social-side-bar {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Project Filters Mobile */
+    .project-filters {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .filter-btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Projects ditampilkan 1 card per baris */
     }
 
     .journey-card {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
     }
 
-    .flex-between {
+    .journey-num {
+        font-size: 1.4rem;
+    }
+
+    .footer-content {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
+        gap: 16px;
     }
 }
 
@@ -1344,13 +1515,69 @@ button, input, textarea {
 body.light-mode {
     --bg-main: #fcfbf8;
     --bg-secondary: #e0e1e2;
-    --bg-card: #FFFFFF;
+    --bg-card: #ececec;
     --bg-card-hover: #E2E8F0;
     
     --text-primary: #0F172A;
-    --text-secondary: #475569;
+    --text-secondary: #0c1425;
     --text-muted: #64748B;
     
-    --border-color: #E2E8F0;
+    --border-color: #bfc0ca;
     --border-orange: rgba(234, 88, 12, 0.4);
+}
+
+/* Custom Orange Cursor */
+@media (min-width: 993px) {
+    /* Sembunyikan cursor bawaan di layar desktop */
+    body {
+        cursor: none;
+    }
+
+    a, button, input, textarea, .btn, .filter-btn {
+        cursor: none !important;
+    }
+
+    /* Lingkaran Luar (Outline Orange Transparan) */
+    .custom-cursor-outer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        border: 2px solid var(--accent-orange-glow);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transition: transform 0.15s ease-out, background-color 0.2s ease;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Titik Oranye di Tengah */
+    .custom-cursor-inner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-orange-glow);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Efek Membesar Saat Hover Tombol / Link */
+    body.cursor-hover .custom-cursor-outer {
+        transform: translate(-50%, -50%) scale(1.5);
+        background-color: rgba(234, 88, 12, 0.15);
+        border-color: var(--accent-orange);
+    }
+}
+
+/* Sembunyikan custom cursor di HP/Tablet karena menggunakan touch screen */
+@media (max-width: 992px) {
+    .custom-cursor-outer,
+    .custom-cursor-inner {
+        display: none !important;
+    }
 }

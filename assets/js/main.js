@@ -109,20 +109,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Mobile Hamburger Menu
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.querySelector('.hamburger-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+    function openMenu() {
+        navMenu.classList.add('active');
+        document.body.classList.add('menu-open');
     }
+
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.contains('active') ? closeMenu() : openMenu();
+    });
+
+    // Tutup menu otomatis saat link diklik (supaya scroll tidak terkunci terus)
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Kalau layar diperbesar ke desktop saat menu terbuka, buka kunci scroll
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) closeMenu();
+    });
 
     // 4. Back To Top
     const backToTopBtn = document.getElementById('backToTop');
@@ -209,3 +220,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Custom Orange Cursor Logic
+const cursorOuter = document.querySelector('.custom-cursor-outer');
+const cursorInner = document.querySelector('.custom-cursor-inner');
+
+if (cursorOuter && cursorInner && window.innerWidth > 992) {
+    window.addEventListener('mousemove', (e) => {
+        const { clientX: x, clientY: y } = e;
+        
+        // Pergerakan titik inner (langsung ikuti mouse)
+        cursorInner.style.left = `${x}px`;
+        cursorInner.style.top = `${y}px`;
+        
+        // Pergerakan lingkaran outer (mengikuti dengan sedikit delay/smooth)
+        cursorOuter.animate({
+            left: `${x}px`,
+            top: `${y}px`
+        }, { duration: 150, fill: "forwards" });
+    });
+
+    // Efek membesar saat kursor diarahkan ke elemen yang bisa diklik
+    const hoverElements = document.querySelectorAll('a, button, input, textarea, .btn, .filter-btn, .project-card');
+    
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+}
