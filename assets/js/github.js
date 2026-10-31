@@ -55,7 +55,7 @@ async function fetchGitHubRepos(username = 'mpidermen') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchGitHubRepos('octocat');
+    fetchGitHubRepos('mpidermen');
 
     const fetchBtn = document.getElementById('fetchGhBtn');
     const usernameInput = document.getElementById('ghUsernameInput');
